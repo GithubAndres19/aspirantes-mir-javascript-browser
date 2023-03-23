@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Palindromo</title>
+  </head>
+  <body>
+    <label for="texto">Escribe algo:</label>
+    <input type="text" id="texto">
+    <button class="btn">Validar</button>
+    <p id="resultado"></p>
+
+    <script>
+      const input = document.querySelector('#texto');
+      const boton = document.querySelector('.btn');
+      const resultado = document.querySelector('#resultado');
+
+      boton.addEventListener('click', function() {
+        const texto = input.value.toLowerCase().replace(/\s/g, '');
+        const copia = texto.split('').reverse().join('');
+
+        if (texto === copia) {
+          resultado.textContent = `${texto} es palindrómico`;
+        } else {
+          resultado.textContent = `${texto} no es palindrómico`;
+        }
+      });
+    </script>
+  </body>
+</html>
