@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TODO List</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <h1>TODO List</h1>
+    <form>
+      <input type="text" id="new-task" placeholder="Nueva tarea...">
+      <button type="button" id="add-task">Agregar</button>
+    </form>
+    <ul id="task-list"></ul>
+    <div id="filter-wrapper">
+      <label for="filter">Filtrar por:</label>
+      <select id="filter">
+        <option value="all">Todos</option>
+        <option value="completed">Completados</option>
+        <option value="incompleted">Incompletos</option>
+      </select>
+    </div>
+    <button type="button" id="delete-completed">Eliminar completados</button>
+    <script src="index.html"></script>
+  </body>
+</html>
