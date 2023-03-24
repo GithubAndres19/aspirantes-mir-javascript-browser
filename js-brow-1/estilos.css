@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-top: 20px;
+  }  
+  input[type="text"] {
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }  
+  .btn {
+    background-color: #021f69;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }  
+  #resultado, #resultadoMayusculas {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }  
+  #resultado {
+    color: rgb(255, 0, 0);
+  }  
+  #resultadoMayusculas {
+    color: rgb(25, 88, 235);
+  }

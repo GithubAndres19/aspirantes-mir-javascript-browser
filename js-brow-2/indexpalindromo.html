@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Palíndromo</title>
+    <link rel="stylesheet" href="estilos2.css">
+  </head>
+  <body>
+    <label for="texto">Escribe algo:</label>
+    <input type="text" id="texto">
+    <button id="boton">Comprobar</button>
+    <p id="resultado"></p>
+
+    <script>
+      const input = document.querySelector('#texto');
+      const boton = document.querySelector('#boton');
+      const resultado = document.querySelector('#resultado');
+
+      boton.addEventListener('click', function() {
+        const texto = input.value.toLowerCase().replace(/[\W_]/g, '');
+        const textoReverso = texto.split('').reverse().join('');
+        
+        if (texto === textoReverso) {
+          resultado.textContent = `"${texto}" es un palíndromo.`;
+        } else {
+          resultado.textContent = `"${texto}" no es un palíndromo.`;
+        }
+      });
+    </script>
+  </body>
+</html>

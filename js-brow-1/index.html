@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Palindromo</title>
-  </head>
-  <body>
-    <label for="texto">Escribe algo:</label>
-    <input type="text" id="texto">
-    <button class="btn">Validar</button>
-    <p id="resultado"></p>
 
-    <script>
-      const input = document.querySelector('#texto');
-      const boton = document.querySelector('.btn');
-      const resultado = document.querySelector('#resultado');
+<head>
+  <meta charset="UTF-8">
+  <title>Mayúsculas</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
 
-      boton.addEventListener('click', function() {
-        const texto = input.value.toLowerCase().replace(/\s/g, '');
-        const copia = texto.split('').reverse().join('');
+<body>
+  <label for="texto">Escribe algo:</label>
+  <input type="text" id="texto">
+  <button class="btn">Convertir mensaje a mayúsculas</button>
+  <p id="resultado"></p>
+  <p id="resultadoMayusculas"></p>
 
-        if (texto === copia) {
-          resultado.textContent = `${texto} es palindrómico`;
-        } else {
-          resultado.textContent = `${texto} no es palindrómico`;
-        }
-      });
-    </script>
-  </body>
+  <script>
+    const input = document.querySelector('#texto');
+    const resultado = document.querySelector('#resultado');
+    const resultadoMayusculas = document.querySelector('#resultadoMayusculas');
+    const btnConvertir = document.querySelector('.btn');
+
+    input.addEventListener('input', function () {
+      const texto = input.value.toUpperCase();
+      resultado.textContent = texto;
+    });
+
+    btnConvertir.addEventListener('click', function () {
+      const texto = input.value.toUpperCase();
+      resultadoMayusculas.textContent = texto;
+    });
+  </script>
+</body>
+
 </html>
