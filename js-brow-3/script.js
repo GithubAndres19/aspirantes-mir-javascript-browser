@@ -1,43 +1,42 @@
 // Obtener elementos del DOM
 const form = document.querySelector('form');
-const input = document.querySelector('input');
-const section = document.querySelector('.section');
-const button = document.querySelector('button');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const section = document.querySelector('section');
 
 // Manejar el evento de enviar el formulario
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  const name = input.value;
-  localStorage.setItem('name', name);
-  showName();
+  const name = nameInput.value;
+  const email = emailInput.value;
+  const data = { name, email };
+  localStorage.setItem('data', JSON.stringify(data));
+  showData();
 });
 
-// Función para mostrar el nombre guardado en localStorage
-function showName() {
-  const name = localStorage.getItem('name');
-  if (name) {
+// Función para mostrar los datos guardados en localStorage
+function showData() {
+  const dataString = localStorage.getItem('data');
+  if (dataString) {
+    const data = JSON.parse(dataString);
     section.innerHTML = `
-      <div id="data-section">
-        <p>Hola, ${name}!</p>
-        <button class="delete-btn">Borrar</button>
-      </div>
+      <p>Hola, ${data.name}! Tu correo electrónico es ${data.email}.</p>
+      <button class="delete-btn">Borrar</button>
     `;
   } else {
     section.innerHTML = `
-      <div id="data-section">
-        <p>No hay datos guardados.</p>
-      </div>
+      <p>No hay datos guardados.</p>
     `;
   }
   const deleteButton = document.querySelector('.delete-btn');
-  deleteButton.addEventListener('click', deleteName);
+  deleteButton.addEventListener('click', deleteData);
 }
 
-// Función para borrar el nombre guardado en localStorage
-function deleteName() {
-  localStorage.removeItem('name');
-  showName();
+// Función para borrar los datos guardados en localStorage
+function deleteData() {
+  localStorage.removeItem('data');
+  section.innerHTML = `<p>No hay datos guardados.</p>`;
 }
 
-// Mostrar el nombre guardado al cargar la página
-showName();
+// Mostrar los datos guardados al cargar la página
+showData();
