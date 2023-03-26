@@ -2,7 +2,7 @@
 const form = document.querySelector('form');
 const nameInput = document.querySelector('#name');
 const emailInput = document.querySelector('#email');
-const section = document.querySelector('section');
+const section = document.querySelector('#data-section');
 
 // Manejar el evento de enviar el formulario
 form.addEventListener('submit', (event) => {
@@ -12,6 +12,7 @@ form.addEventListener('submit', (event) => {
   const data = { name, email };
   localStorage.setItem('data', JSON.stringify(data));
   showData();
+  nameInput.value = emailInput.value = "";
 });
 
 // Función para mostrar los datos guardados en localStorage
@@ -20,7 +21,7 @@ function showData() {
   if (dataString) {
     const data = JSON.parse(dataString);
     section.innerHTML = `
-      <p>Hola, ${data.name}! Tu correo electrónico es ${data.email}.</p>
+      <p>Hola, ${data.name}! <br/> Tu correo electrónico es ${data.email}.</p>
       <button class="delete-btn">Borrar</button>
     `;
   } else {
@@ -39,4 +40,4 @@ function deleteData() {
 }
 
 // Mostrar los datos guardados al cargar la página
-showData();
+onload = () => showData();
